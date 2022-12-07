@@ -14,8 +14,16 @@ def print_hi(name):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     while True:
+        time.sleep(5)
+        PA.moveTo(-2790,50,duration=3)
         PA.doubleClick()
-        time.sleep(600)
+        time.sleep(10)
+        print("duoble click")                                                                                 
+        time.sleep(300)
         PA.doubleClick()
+        print("duoble click")
+        time.sleep(60)
+        PA.moveTo(-2790,32,duration=3)
+        time.sleep(300)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
