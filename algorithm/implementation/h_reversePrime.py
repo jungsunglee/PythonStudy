@@ -4,6 +4,24 @@
 import sys
 import traceback
 
+#Solution
+def reverse_sol(number: int)-> int:
+    res = 0
+    while number > 0: # 몫이 0이면 stop 즉, 나뉘는 수가 10보다 작으면 stop
+        remainder = number%10
+        res = res*10+remainder
+        number = number//10
+    return res
+
+def isPrime_sol(reverseNum: int)-> bool:
+    if reverseNum == 1:
+        return False
+    for i in range(2,i//2+1): # 소수는 1과 자기 자신을 약수로 갖는 수로 그 숫자의 절반까지만 확인하면 됨.
+        if reverseNum%i==0:
+            return False
+    else:
+        return True
+
 def reverse(number: int)->int:
     re = []
     while True:
@@ -25,24 +43,6 @@ def reverse(number: int)->int:
             re.append(remainder)
             number = quotient
     return int(''.join(str(a) for a in re))
-
-#Solution
-def reverse_sol(number: int)-> int:
-    res = 0
-    while number > 0: # 몫이 0이면 stop 즉, 나뉘는 수가 10보다 작으면 stop
-        remainder = number%10
-        res = res*10+remainder
-        number = number//10
-    return res
-
-def isPrime_sol(reverseNum: int)-> bool:
-    if reverseNum == 1:
-        return False
-    for i in range(2,i//2+1): # 소수는 1과 자기 자신을 약수로 갖는 수로 그 숫자의 절반까지만 확인하면 됨.
-        if reverseNum%i==0:
-            return False
-    else:
-        return True
 
 def isPrime(reverseNum:int)->bool:
     cnt = 0

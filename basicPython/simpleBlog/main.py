@@ -1,6 +1,7 @@
 import os.path
 import csv
 from post import Post
+import traceback
 
 dataList = []
 dataPath = ".\\basicPython\simpleBlog\data.csv"
@@ -120,10 +121,12 @@ while True:
         command=int(input("\n- Simple Blog -\n- Please Select Menu -\n1. Write Post\n2. Posts Index\n3. End\n>>>"))
         if command <1 or command >3:
             raise Exception("Input value range error.")
-    except Exception as e:
-        print("[ERROR] Please Input the right range number from 1 to 3\n", e)
     except ValueError as e:
+        traceback.print_exc()
         print("[ERROR] Please Input the number from 1 to 3\n", e)
+    except Exception as e:
+        traceback.print_exc()
+        print("[ERROR] Please Input the right range number from 1 to 3\n", e)
     else: # try문에서 else는 error가 발생하지 않을 때 동작임
         if command == 1:
             print("Write Posts\n")
